@@ -8,7 +8,7 @@ const makeCalculator = () => {
     result: 0,
 
     operate(callback, number) {
-      this.result = callback(this.result, number);
+     callback.call(this, number);
 
       return this;
     },
@@ -19,20 +19,20 @@ const makeCalculator = () => {
       return this;
     },
 
-    add(number1, number2) {
-      return number1 + number2;
+    add(number) {
+      this.result += number;
     },
 
-    subtract(number1, number2) {
-      return number1 - number2;
+    subtract(number) {
+      this.result -= number;
     },
 
-    multiply(number1, number2) {
-      return number1 * number2;
+    multiply(number) {
+      this.result *= number;
     },
 
-    divide(number1, number2) {
-      return number1 / number2;
+    divide(number) {
+      this.result /= number;
     },
   };
 };
