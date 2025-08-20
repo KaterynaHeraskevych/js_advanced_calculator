@@ -8,7 +8,9 @@ const makeCalculator = () => {
     result: 0,
 
     operate(callback, number) {
-     callback.call(this, number);
+      if (typeof callback === 'function') {
+        callback.call(this, number);
+      }
 
       return this;
     },
